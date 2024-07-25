@@ -7,7 +7,7 @@ namespace Morph.Logic.Extensions
 	/// A static reference to the Morph serialization and
 	/// deserialization functionality.
 	/// </summary>
-    public static class Serializer
+	public static class Serializer
 	{
 		/// <summary>
 		/// Compresses and serializes the provided object.
@@ -63,22 +63,22 @@ namespace Morph.Logic.Extensions
 		/// </returns>
 		/// <exception cref="Exception"></exception>
 		public static SerializedType? Deserialize<SerializedType>(this byte[] bytes) where SerializedType : class, new()
-        {
-            var serializer = new DataContractSerializer(typeof(SerializedType));
-            try
-            {
-                using (MemoryStream stream = new MemoryStream(bytes))
+		{
+			var serializer = new DataContractSerializer(typeof(SerializedType));
+			try
+			{
+				using (MemoryStream stream = new MemoryStream(bytes))
 				{
 					using (GZipStream decompressionStream = new(stream, CompressionMode.Decompress))
 					{
 						return serializer.ReadObject(decompressionStream) as SerializedType;
 					}
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
 		}
 
 		/// <summary>

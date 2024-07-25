@@ -3,22 +3,22 @@ using Morph.Tests.Models;
 
 namespace Morph.Tests.Extensions
 {
-    public class SerializerTests
-    {
-        [Fact]
-        public void Serialization_ShouldSerializeToByteArray_WhenObjectIsSerialized()
-        {
-            var complexObject = CreateComplexObject();
-            var serializedObject = complexObject.Serialize();
+	public class SerializerTests
+	{
+		[Fact]
+		public void Serialization_ShouldSerializeToByteArray_WhenObjectIsSerialized()
+		{
+			var complexObject = CreateComplexObject();
+			var serializedObject = complexObject.Serialize();
 
-            Assert.IsType<byte[]>(serializedObject);
-            Assert.NotEmpty(serializedObject);
+			Assert.IsType<byte[]>(serializedObject);
+			Assert.NotEmpty(serializedObject);
 		}
 
 		[Fact]
 		public void Serialization_ShouldSerializeToByteArray_WhenStringIsSerialized()
 		{
-            var stringToSerialize = "serialize-this-string";
+			var stringToSerialize = "serialize-this-string";
 			var serializedObject = stringToSerialize.Serialize();
 
 			Assert.IsType<byte[]>(serializedObject);
@@ -26,14 +26,14 @@ namespace Morph.Tests.Extensions
 		}
 
 		[Fact]
-        public void Deserialization_ShouldDeserializeBackToObject_WhenObjectIsDeserialized()
-        {
-            var complexObject = CreateComplexObject();
-            var serializedObject = complexObject.Serialize();
-            var deserializedObject = serializedObject.Deserialize<ComplexObject>();
+		public void Deserialization_ShouldDeserializeBackToObject_WhenObjectIsDeserialized()
+		{
+			var complexObject = CreateComplexObject();
+			var serializedObject = complexObject.Serialize();
+			var deserializedObject = serializedObject.Deserialize<ComplexObject>();
 
-            Assert.IsType<ComplexObject>(deserializedObject);
-            Assert.True(deserializedObject.IsSuccess);
+			Assert.IsType<ComplexObject>(deserializedObject);
+			Assert.True(deserializedObject.IsSuccess);
 		}
 
 		[Fact]
@@ -43,9 +43,9 @@ namespace Morph.Tests.Extensions
 			var serializedString = stringToSerialize.Serialize();
 			string? deserializedString = serializedString.Deserialize();
 
-            Assert.NotNull(deserializedString);
+			Assert.NotNull(deserializedString);
 			Assert.IsType<string>(deserializedString);
-            Assert.Equal(stringToSerialize, deserializedString);
+			Assert.Equal(stringToSerialize, deserializedString);
 		}
 
 		[Fact]
@@ -84,19 +84,19 @@ namespace Morph.Tests.Extensions
 		}
 
 		private SimpleObject CreateSimpleObject() => new()
-        {
-            Dimensions = [[0, 1, 2], [2, 1, 0]],
-            Amount = 15.50m,
-            Id = Guid.NewGuid(),
-            Times = 5,
-            Value = "Simple Object"
-        };
+		{
+			Dimensions = [[0, 1, 2], [2, 1, 0]],
+			Amount = 15.50m,
+			Id = Guid.NewGuid(),
+			Times = 5,
+			Value = "Simple Object"
+		};
 
-        private ComplexObject CreateComplexObject() => new()
-        {
-            Strings = ["first", "second"],
-            IsSuccess = true,
-            SimpleObject = CreateSimpleObject()
-        };
-    }
+		private ComplexObject CreateComplexObject() => new()
+		{
+			Strings = ["first", "second"],
+			IsSuccess = true,
+			SimpleObject = CreateSimpleObject()
+		};
+	}
 }

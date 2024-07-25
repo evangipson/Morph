@@ -21,7 +21,7 @@ namespace Morph.Tests.Models
 
 		private string GetDimensionsString()
 		{
-			if(Dimensions == null || !Dimensions.Any())
+			if (Dimensions == null || !Dimensions.Any())
 			{
 				return "[]";
 			}
