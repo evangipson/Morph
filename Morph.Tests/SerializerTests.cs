@@ -1,7 +1,7 @@
-using Morph.Logic.Extensions;
+using Morph.Serializer;
 using Morph.Tests.Models;
 
-namespace Morph.Tests.Extensions
+namespace Morph.Tests
 {
 	public class SerializerTests
 	{

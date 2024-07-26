@@ -1,13 +1,13 @@
 ﻿using System.IO.Compression;
 using System.Runtime.Serialization;
 
-namespace Morph.Logic.Extensions
+namespace Morph.Serializer
 {
 	/// <summary>
 	/// A static reference to the Morph serialization and
 	/// deserialization functionality.
 	/// </summary>
-	public static class Serializer
+	public static class MorphSerializer
 	{
 		/// <summary>
 		/// Compresses and serializes the provided object.

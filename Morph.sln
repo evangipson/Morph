@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Morph.Base", "Morph.Base\Morph.Base.csproj", "{970DECBD-B0AA-4352-8F26-AE9477365032}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Morph.Serializer", "Morph.Serializer\Morph.Serializer.csproj", "{5B80E506-A54E-4DB8-ABAE-BCFD939FBCA9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Morph.Logic", "Morph.Logic\Morph.Logic.csproj", "{5B80E506-A54E-4DB8-ABAE-BCFD939FBCA9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Morph.View", "Morph.View\Morph.View.csproj", "{BB11A518-3510-4BC8-A2EF-C6BEC0DABF58}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Morph.Tests", "Morph.Tests\Morph.Tests.csproj", "{9D0277D5-ACB6-4326-8418-CEEEEB63E4ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Morph.Tests", "Morph.Tests\Morph.Tests.csproj", "{9D0277D5-ACB6-4326-8418-CEEEEB63E4ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,18 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{970DECBD-B0AA-4352-8F26-AE9477365032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{970DECBD-B0AA-4352-8F26-AE9477365032}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{970DECBD-B0AA-4352-8F26-AE9477365032}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{970DECBD-B0AA-4352-8F26-AE9477365032}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5B80E506-A54E-4DB8-ABAE-BCFD939FBCA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5B80E506-A54E-4DB8-ABAE-BCFD939FBCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B80E506-A54E-4DB8-ABAE-BCFD939FBCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B80E506-A54E-4DB8-ABAE-BCFD939FBCA9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB11A518-3510-4BC8-A2EF-C6BEC0DABF58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB11A518-3510-4BC8-A2EF-C6BEC0DABF58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB11A518-3510-4BC8-A2EF-C6BEC0DABF58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB11A518-3510-4BC8-A2EF-C6BEC0DABF58}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9D0277D5-ACB6-4326-8418-CEEEEB63E4ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D0277D5-ACB6-4326-8418-CEEEEB63E4ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D0277D5-ACB6-4326-8418-CEEEEB63E4ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
