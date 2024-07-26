@@ -4,6 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Version>1.0.1</Version>
+    <Authors>Evan Gipson</Authors>
+    <RepositoryUrl>https://github.com/evangipson/Morph</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
