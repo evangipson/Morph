@@ -81,19 +81,6 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
 1. Clone the repo
    ```sh
    git clone https://github.com/evangipson/Morph.git
@@ -108,10 +95,47 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Download Morph from NuGet
-    - Use Visual Studio NuGet package manager, or visit https://github.com/evangipson/Morph/pkgs/nuget/Morph.Serializer
+1. Download Morph from GitHub's NuGet by doing any of the following:
+    - visit https://github.com/evangipson/Morph/pkgs/nuget/Morph.Serializer
+    - add https://nuget.pkg.github.com/index.json to your NuGet package managers in Visual Studio
+    - run the command `dotnet add package Morph.Serializer --version 1.0.0` in an existing project directory
 1. In your code, add a `using` statement for `Morph.Serializer`
-1. Serialize and deserialize!
+1. Serialize and deserialize using the methods provided:
+```csharp
+// Give some object...
+public class SomeObject
+{
+	public string? Value { get; set; }
+
+	public decimal Amount { get; set; }
+
+	public int Times { get; set; }
+
+	public int[][]? Dimensions { get; set; }
+
+	public Guid Id { get; set; }
+}
+var someNewObject = new SomeObject
+{
+	Dimensions = [[0, 1, 2], [2, 1, 0]],
+	Amount = 15.50m,
+	Id = Guid.NewGuid(),
+	Times = 5,
+	Value = "Simple Object"
+};
+
+// Serialize an object into a compressed byte[]
+byte[] serializedObject = someNewObject.Serialize();
+
+// Deserialize a compressed byte[] to an object
+SomeObject deserializedObject = serializedObject.Deserialize<ComplexObject>();
+
+// Serialize an object into a file
+bool success = someNewObject.SerializeToFile("serialized-data.save");
+
+// Deserialize an object from a file
+SomeObject deserializedObjectFromFile = MorphSerializer.DeserializeFromFile<SomeObject>("serialized-data.save");
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

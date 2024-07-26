@@ -1,5 +1,6 @@
 ﻿using System.IO.Compression;
 using System.Runtime.Serialization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Morph.Serializer
 {
@@ -144,6 +145,40 @@ namespace Morph.Serializer
 			catch (Exception ex)
 			{
 				throw new Exception(ex.Message);
+			}
+		}
+
+		public static bool SerializeToFile<SerializedType>(this SerializedType objectToSerialize, string fileName)
+		{
+			try
+			{
+				using (BinaryWriter writer = new(File.OpenWrite(fileName)))
+				{
+					writer.Write(Serialize(objectToSerialize));
+					writer.Flush();
+				}
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		public static SerializedType? DeserializeFromFile<SerializedType>(string fileName) where SerializedType : class, new()
+		{
+			try
+			{
+				using (BinaryReader reader = new(File.OpenRead(fileName)))
+				{
+					reader.BaseStream.Position = 0;
+					byte[] stream = reader.ReadBytes((int)reader.BaseStream.Length);
+					return stream.Deserialize<SerializedType>();
+				}
+			}
+			catch
+			{
+				return default;
 			}
 		}
 	}

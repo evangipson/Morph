@@ -83,6 +83,27 @@ namespace Morph.Tests
 			Assert.IsType<SimpleObject>(deserializedObject.SimpleObject);
 		}
 
+		[Fact]
+		public void SerializeToFile_ShouldWriteBytesToFile_WhenListOfObjectsIsSerialized()
+		{
+			List<ComplexObject> complexObjects = [ CreateComplexObject(), CreateComplexObject() ];
+			var success = complexObjects.SerializeToFile("serialized-data.save");
+
+			Assert.True(success);
+		}
+
+		[Fact]
+		public void DeserializeFromFile_ShouldReadBytesFromFile_WhenListOfObjectsIsDeserialized()
+		{
+			List<ComplexObject> complexObjects = [CreateComplexObject(), CreateComplexObject()];
+			var success = complexObjects.SerializeToFile("serialized-data.save");
+			var deserializedObjects = MorphSerializer.DeserializeFromFile<List<ComplexObject>>("serialized-data.save");
+
+			Assert.NotNull(deserializedObjects);
+			Assert.NotEmpty(deserializedObjects);
+			Assert.IsType<SimpleObject>(deserializedObjects.First().SimpleObject);
+		}
+
 		private SimpleObject CreateSimpleObject() => new()
 		{
 			Dimensions = [[0, 1, 2], [2, 1, 0]],
