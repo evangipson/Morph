@@ -181,5 +181,22 @@ namespace Morph.Serializer
 				return default;
 			}
 		}
+
+		public static SerializedType? DeserializeStructFromFile<SerializedType>(string fileName) where SerializedType : struct
+		{
+			try
+			{
+				using (BinaryReader reader = new(File.OpenRead(fileName)))
+				{
+					reader.BaseStream.Position = 0;
+					byte[] stream = reader.ReadBytes((int)reader.BaseStream.Length);
+					return stream.DeserializeStruct<SerializedType>();
+				}
+			}
+			catch
+			{
+				return default;
+			}
+		}
 	}
 }

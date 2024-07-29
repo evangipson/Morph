@@ -104,6 +104,17 @@ namespace Morph.Tests
 			Assert.IsType<SimpleObject>(deserializedObjects.First().SimpleObject);
 		}
 
+		[Fact]
+		public void DeserializeStructFromFile_ShouldReadBytesFromFile_WhenStructIsDeserialized()
+		{
+			SimpleStruct simpleStruct = CreateSimpleStruct();
+			var success = simpleStruct.SerializeToFile("serialized-data.save");
+			var deserializedStruct = MorphSerializer.DeserializeStructFromFile<SimpleStruct>("serialized-data.save");
+
+			Assert.NotNull(deserializedStruct);
+			Assert.IsType<SimpleStruct>(deserializedStruct);
+		}
+
 		private SimpleObject CreateSimpleObject() => new()
 		{
 			Dimensions = [[0, 1, 2], [2, 1, 0]],
@@ -119,5 +130,7 @@ namespace Morph.Tests
 			IsSuccess = true,
 			SimpleObject = CreateSimpleObject()
 		};
+
+		private SimpleStruct CreateSimpleStruct() => new("The String", 25);
 	}
 }
